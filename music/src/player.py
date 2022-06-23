@@ -8,7 +8,7 @@ import logging
 
 
 
-class _PLAYER:
+class PLAYER:
     def __init__(self, guild: discord.Guild):
         self.song_repeat = False
         self.queue_loop = False

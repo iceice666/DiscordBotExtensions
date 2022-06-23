@@ -15,15 +15,17 @@ discordbot/
              ├─ __init__.py
              ├─ general.py
              └─ <your project> #your project. It's an example.
-                ├─ __init__.py
-                └─ some_code.py
+                  ├─ __init__.py
+                  ├─ setup.py
+                  └─ src
+                     └─ some_code.py
 ```
 
 在插件的根資料夾（Root folder）中的 `__init__.py` 裡定義一個 `setup` 函數 :
 
 ```python
   # <your project>/__init__.py
-  from .<your project> import <some something>
+  from .src.<your module> import <something>
   # 參數 'bot' 是必要的，因為bot在載入時會傳入一個 discord.Bot 物件來載入如 'commands.Cog' 等特定功能.
   def setup(bot):
     # load some stuff brabrabra
@@ -41,5 +43,7 @@ Modules:
   #Just like
   - "src.extensions.<your project>"
 
-...
 ```
+
+> 記得在`setup.py`中處裡插件的前置作業
+（如前置模組）

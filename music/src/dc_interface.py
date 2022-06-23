@@ -9,8 +9,8 @@ from discord.ext import commands
 from discord.utils import escape_markdown
 
 
-from .player import _PLAYER
-from ... import config
+from .player import PLAYER
+from .... import config
 
 
 class MusicCmd(commands.Cog):
@@ -19,7 +19,7 @@ class MusicCmd(commands.Cog):
 
         self._menu = None
         self.bot = bot
-        self.players: dict[int, _PLAYER] = {}
+        self.players: dict[int, PLAYER] = {}
         self._player = None
 
         bot.loop.create_task(self.connect_nodes())
@@ -44,7 +44,7 @@ class MusicCmd(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         for guild in self.bot.guilds:
-            self.players[guild.id] = _PLAYER(guild)
+            self.players[guild.id] = PLAYER(guild)
 
     @commands.Cog.listener()
     async def on_voice_state_update(self, member, before, after):

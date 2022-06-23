@@ -1,7 +1,8 @@
 
-from .dc_interface import MusicCmd
 
 
+
+from .src.dc_interface import MusicCmd
 
 
 def setup(bot):
